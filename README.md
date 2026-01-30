@@ -4,8 +4,7 @@ CONSIGNES : https://github.com/bouajajais/nlp-instructions/blob/main/INSTRUCTION
 # Lancement du projet
 
 ## Prérequis
-Python 3.11 minimum
-
+Python 3.11 obligatoire (car requis par la version du package litellm utilisée)
 
 pip
 
@@ -28,6 +27,15 @@ Mettre pip à jour :
 
 Installer toutes les librairies du projet :
 > pip install -r requirements.txt
+
+## Installation de Ollama
+
+1. Téléchargez et installez Ollama depuis https://ollama.com/download
+2. Une fois installé, lancez Ollama (il s'exécutera en arrière-plan)
+3. Téléchargez le modèle d'embeddings utilisé pour le RAG :
+   > ollama pull nomic-embed-text
+
+**À quoi ça sert :** Ollama fournit le modèle `nomic-embed-text` qui génère les **embeddings** (représentations vectorielles) des documents PDF. Ces embeddings permettent au système RAG de chercher et récupérer les informations pertinentes des PDFs pour enrichir les réponses des agents.
 
 ## Configuration GroqCloud (API Key)
 ### 1) Générer une clé API GroqCloud
