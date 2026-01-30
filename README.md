@@ -58,6 +58,54 @@ _sur Windows:_
 
 Remplacez `VOTRE_CLE_ICI` par votre clé API réelle.
 
+## 2. Structure du projet
+
+Le projet est organisé de la manière suivante :
+
+```
+NLP_Project/
+│
+├── app.py                      # Application principale Streamlit
+├── agents_sequential.py        # Implémentation des agents en mode séquentiel
+├── agents_hierarchical.py      # Implémentation des agents en mode hiérarchique
+├── evaluation.py               # Module d'évaluation et de calcul des métriques
+├── utils.py                    # Fonctions utilitaires (prétraitement, interprétation des paramètres)
+│
+├── crewai_tools/              # Outils personnalisés pour CrewAI
+│   ├── knowledge/             # Base de connaissances pour les agents contenant les PDFs Guide de Voyage provenant de WikiVoyage https://fr.wikivoyage.org/wiki/Accueil/
+│   └── tools/                 # Outils spécifiques
+│       ├── database.py        # Gestion de la base de données vectorielle
+│       └── geocoder_tool.py   # Outil de géolocalisation des lieux
+│
+├── chroma_db_storage/         # Stockage des bases vectorielles Chroma
+│   ├── Japon/                 # Base vectorielle pour le Japon
+│   ├── New_York/              # Base vectorielle pour New York
+│   └── Rome/                  # Base vectorielle pour Rome
+│
+├── image/                     # Images et diagrammes pour le README
+│
+├── requirements.txt           # Dépendances Python du projet
+├── test.ipynb                 # Notebook de tests et expérimentations (indépendant du projet)
+├── README.md                  # Documentation du projet
+└── .env                       # Configuration des clés API 
+```
+
+### Description des fichiers principaux
+
+- **app.py** : Point d'entrée de l'application. Contient l'interface Streamlit permettant à l'utilisateur de configurer son voyage et de comparer les différentes méthodes de génération.
+
+- **agents_sequential.py** : Définit les agents CrewAI travaillant de manière séquentielle (expert local, concepteur d'itinéraire, auditeur budgétaire, rédacteur).
+
+- **agents_hierarchical.py** : Version hiérarchique des agents avec un agent superviseur (utilisée à titre exploratoire).
+
+- **evaluation.py** : Contient les fonctions d'évaluation des itinéraires (calcul des distances, LLM Judge, métriques de qualité).
+
+- **utils.py** : Fonctions de prétraitement des documents PDF, génération des embeddings, interprétation des paramètres utilisateur.
+
+- **crewai_tools/** : Dossier contenant les outils personnalisés utilisés par les agents CrewAI, notamment pour l'accès à la base vectorielle et la géolocalisation.
+
+- **chroma_db_storage/** : Stockage persistant des bases vectorielles Chroma, organisées par destination. Permet d'éviter le recalcul des embeddings à chaque lancement.
+
 ### 3) Lancer le code ![Static Badge](https://img.shields.io/badge/Ready-green)
 > streamlit run app.py
 
