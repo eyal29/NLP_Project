@@ -58,7 +58,7 @@ _sur Windows:_
 
 Remplacez `VOTRE_CLE_ICI` par votre clé API réelle.
 
-## 2. Structure du projet
+## Structure du projet
 
 Le projet est organisé de la manière suivante :
 
