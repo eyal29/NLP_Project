@@ -4,13 +4,15 @@ CONSIGNES : https://github.com/bouajajais/nlp-instructions/blob/main/INSTRUCTION
 # Lancement du projet
 
 ## Prérequis
-Python 3.11 obligatoire (car requis par la version du package litellm utilisée)
 
-pip
+- pip
+- Python 3.11 obligatoire (car requis par la version du package litellm utilisée)
+
+Vous pouvez l'installer via https://www.python.org/downloads/release/python-3110/
 
 ## Création d’un environnement virtuel (recommandé)
 Dans le dossier du projet :
- > python[num_version (si nécessaire)] -m venv venv
+ > py -3.11 -m venv venv
 
 Activation de l’environnement:
 
@@ -20,20 +22,19 @@ Activation de l’environnement:
 
 Une fois activé, (venv) doit apparaître dans le terminal.
 
+Verifiez que votre environnement est bien sur Python 3.11 en faisant la commande suivante: 
+> python --version
+
 ## Installation des dépendances
 
-Mettre pip à jour si nécessaire:
-> pip install --upgrade pip
+Installer uv (dans le venv):
+> python -m pip install uv
 
 Installer toutes les librairies du projet :
-> pip install -r requirements.txt
+> uv pip install -r requirements.txt
 
 (L'installation est un peu longue car il y  a beaucoup de dépendances)
 
-Si la commande produit des conflits de versions, faire ceci et laisser pip choisir les versions: 
-> pip install 'litellm[proxy]==1.75.3' --no-deps
-
-> pip install crewai folium geopy langchain_chroma langchain_community langchain_ollama langchain_text_splitters pandas pypdf plotly python-dotenv streamlit streamlit_folium
 ## Installation de Ollama
 
 1. Téléchargez et installez Ollama depuis https://ollama.com/download

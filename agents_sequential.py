@@ -6,8 +6,10 @@ import time
 import litellm
 
 load_dotenv()
-api_key = os.getenv("GROQ_API_KEY_CY")
-
+api_key = os.getenv("GROQ_API_KEY")
+print(f"DEBUG: API Key loaded: {api_key[:10]}...")  # Affiche les 10 premiers caractères
+if not api_key:
+    print("ERROR: GROQ_API_KEY_CY not found in .env!")
 # --- CONFIGURATION DES LLM ---
 
 llm_synthese = LLM(
