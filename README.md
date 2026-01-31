@@ -15,7 +15,13 @@ Vous pouvez l'installer via https://www.python.org/downloads/release/python-3110
    > py -3.11 -m venv .venv
 2. Activation de l’environnement:
    > source .venv/bin/activate (sur mac)
+
    > .venv\Scripts\activate          (sur windows)
+
+Si la commande donne une erreur, executer ceci: 
+  > Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+puis rééxecuter l'activation précédente
 
 Une fois activé, (venv) doit apparaître dans le terminal.
 
@@ -37,6 +43,8 @@ Une fois activé, (venv) doit apparaître dans le terminal.
 2. Une fois installé, lancez Ollama (il s'exécutera en arrière-plan)
 3. Téléchargez le modèle d'embeddings utilisé pour le RAG :
    > ollama pull nomic-embed-text
+
+   Si la commande ollama n'est pas reconnu, ajouter le chemin absolu dans lequel se trouve ollama.exe dans les variables d'environnements, dans "Path".
 
 **À quoi ça sert :** Ollama fournit le modèle `nomic-embed-text` qui génère les **embeddings** (représentations vectorielles) des documents PDF. Ces embeddings permettent au système RAG de chercher et récupérer les informations pertinentes des PDFs pour enrichir les réponses des agents.
 
