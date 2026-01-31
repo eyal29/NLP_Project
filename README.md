@@ -16,18 +16,24 @@ Activation de l’environnement:
 
  > source venv/bin/activate (sur mac)
 
- > cd venv\Scripts\activate (sur windows)
+ > .venv\Scripts\activate          (sur windows)
 
 Une fois activé, (venv) doit apparaître dans le terminal.
 
 ## Installation des dépendances
 
-Mettre pip à jour :
+Mettre pip à jour si nécessaire:
 > pip install --upgrade pip
 
 Installer toutes les librairies du projet :
 > pip install -r requirements.txt
 
+(L'installation est un peu longue car il y  a beaucoup de dépendances)
+
+Si la commande produit des conflits de versions, faire ceci et laisser pip choisir les versions: 
+> pip install 'litellm[proxy]==1.75.3' --no-deps
+
+> pip install crewai folium geopy langchain_chroma langchain_community langchain_ollama langchain_text_splitters pandas pypdf plotly python-dotenv streamlit streamlit_folium
 ## Installation de Ollama
 
 1. Téléchargez et installez Ollama depuis https://ollama.com/download
@@ -62,7 +68,7 @@ Enregistrez et fermez (Ctrl+O, Entrée, Ctrl+X sur nano).
 _sur Windows:_
 
 À la racine du projet, créez un fichier `.env` avec la commande :
-> echo "GROQ_API_KEY=VOTRE_CLE_ICI" > .env
+> echo "GROQ_API_KEY=VOTRE_CLE_ICI" | Out-File -Encoding UTF8 .env
 
 Remplacez `VOTRE_CLE_ICI` par votre clé API réelle.
 
@@ -115,6 +121,8 @@ NLP_Project/
 - **chroma_db_storage/** : Stockage persistant des bases vectorielles Chroma, organisées par destination. Permet d'éviter le recalcul des embeddings à chaque lancement.
 
 ### 3) Lancer le code ![Static Badge](https://img.shields.io/badge/Ready-green)
+
+Une fois l'installation terminée, lancer l'application:
 > streamlit run app.py
 
 
@@ -256,7 +264,7 @@ Le framework CrewAI a été choisi pour ce projet en raison de sa capacité à m
 
 De plus, CrewAI permet de contrôler précisément les sorties des agents grâce à la définition explicite des tâches et des formats attendus. Cela s’est avéré particulièrement utile dans un contexte comparatif, où l’objectif était d’évaluer différentes approches (LLM seul, multi-agents, avec ou sans RAG) de manière cohérente et reproductible.
 
-Toutefois, CrewAI présente certaines limites. L’orchestration reste principalement séquentielle et repose fortement sur la qualité des prompts fournis. Contrairement à des frameworks plus avancés, il ne propose pas nativement de mécanismes d’auto-évaluation, de mémoire long terme ou de boucles de rétroaction complexes entre agents.
+Toutefois, CrewAI présente certaines limites. L’orchestration reste principalement séquentielle et repose fortement sur la qualité des prompts fournis. Contrairement à des frameworks plus avancés, il ne propose pas nativement de mécanismes d’auto-évaluation, de mémoire long terme ou de boucles de rétroaction complexes entre agents. Par ailleurs, crewai est trop strict sur les versions des dépendances et entraine beaucoup d'incompatibilité si l'utilisateur se trompe de version, notamment avec le package litellm. 
 
 À titre de comparaison, le framework LangChain offre une plus grande flexibilité pour construire des chaînes complexes, intégrer des outils externes et gérer des flux dynamiques. D'autres frameworks intéressants existent comme Langgraph et AutoGen qu'on aurait pu utiliser également. Dans ce contexte, CrewAI représente un compromis pertinent entre simplicité, lisibilité et efficacité.
 
