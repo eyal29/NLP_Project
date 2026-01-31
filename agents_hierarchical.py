@@ -8,7 +8,7 @@ import streamlit as st
 from agents_sequential import notify_streamlit_agent
 
 load_dotenv()
-api_key = os.getenv("GROQ_API_KEY_CY")
+api_key = os.getenv("GROQ_API_KEY")
 
 # Configuration LLM identique mais avec des limites strictes
 llm_boss = LLM(
