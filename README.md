@@ -400,6 +400,20 @@ Cette méthode est plus complexe et demande plus de temps de calcul. Elle est ut
 
 <img src="image/17.png" alt="Organisation hiérarchique des agents" width="500" />
 
+_**Exemple d'exécution**_
+
+Lors de l'exécution du mode hiérarchique, un agent superviseur (Crew Manager) orchestre le travail des autres agents.  
+L'exemple ci-dessous montre le raisonnement de l'agent superviseur qui organise le travail :
+
+<img src="image/30.png" alt="Exemple d'exécution du mode hiérarchique – Raisonnement du Crew Manager" width="600" />
+
+On observe le processus de réflexion de l'agent superviseur :
+- **Thought** : L'agent planifie son approche (ici, calculer les coûts par activité et repas)
+- **Using Tool** : L'agent utilise des outils pour déléguer les tâches (demander aux agents coworkers)
+- **Task Execution** : Les tâches sont assignées et complétées de manière séquentielle
+- **Tool Input/Output** : Les résultats intermédiaires et finaux sont échangés entre agents
+
+Cette approche permet une meilleure coordination et une vérification de la cohérence globale du travail, au détriment du temps d'exécution.
 
 
 ### 6.2 Exemple d’implémentation de l’agent budget
