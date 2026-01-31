@@ -57,27 +57,12 @@ Une fois activé, (venv) doit apparaître dans le terminal.
 5. Copiez la **Secret Key** immédiatement et stockez-la de façon sécurisée (ne pas la commit dans Git)
 
 ### 2) Créer le fichier `.env`
-À la racine du projet, créez un fichier `.env` avec la commande :
+1. À la racine du projet, créez un fichier `.env` :
 
-- _sur Mac:_ 
-  > touch .env
+2. Ajoutez la ligne suivante dans le fichier :
+   > GROQ_API_KEY=VOTRE_CLE_ICI
 
-  Puis ouvrez-le avec un éditeur :
-  > nano .env
-
-  Ajoutez la ligne suivante dans le fichier :
-  GROQ_API_KEY=VOTRE_CLE_ICI
-   
-  Enregistrez et fermez (Ctrl+O, Entrée, Ctrl+X sur nano).
-
-- _sur Windows:_
-
-  À la racine du projet, créez un fichier `.env` avec la commande :
-  > echo "GROQ_API_KEY=VOTRE_CLE_ICI" | Out-File -Encoding UTF8 .env
-
-  Remplacez `VOTRE_CLE_ICI` par votre clé API réelle.
-
-Vous pouvez également le créer à la main.
+Remplacez `VOTRE_CLE_ICI` par votre clé API générée juste avant.
 
 ### 3) Lancer le code ![Static Badge](https://img.shields.io/badge/Ready-green)
 
