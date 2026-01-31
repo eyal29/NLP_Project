@@ -12,11 +12,11 @@ Vous pouvez l'installer via https://www.python.org/downloads/release/python-3110
 
 ## Création d’un environnement virtuel (recommandé)
 Dans le dossier du projet :
- > py -3.11 -m venv venv
+ > py -3.11 -m venv .venv
 
 Activation de l’environnement:
 
- > source venv/bin/activate (sur mac)
+ > source .venv/bin/activate (sur mac)
 
  > .venv\Scripts\activate          (sur windows)
 
@@ -33,7 +33,7 @@ Installer uv (dans le venv):
 Installer toutes les librairies du projet :
 > uv pip install -r requirements.txt
 
-(L'installation est un peu longue car il y  a beaucoup de dépendances)
+(L'installation est un peu longue car il y a beaucoup de dépendances)
 
 ## Installation de Ollama
 
@@ -73,7 +73,37 @@ _sur Windows:_
 
 Remplacez `VOTRE_CLE_ICI` par votre clé API réelle.
 
-## Structure du projet
+Vous pouvez également le créer à la main.
+
+### 3) Lancer le code ![Static Badge](https://img.shields.io/badge/Ready-green)
+
+Une fois l'installation terminée, lancer l'application:
+> streamlit run app.py
+
+
+-------------------------------------------------------------------------------------------------------------
+## 1. Introduction
+### 1.1 Contexte
+
+Ce projet a pour objectif de créer une application de **traitement du langage naturel (NLP)** permettant de générer des **recommandations de voyage** à partir de documents textuels.
+Les données utilisées sont des **documents PDF** contenant des informations sur différentes destinations.  
+
+L’utilisateur interagit avec une interface **Streamlit** afin de définir ses préférences (destination, budget, rythme du séjour, etc.).
+À partir de ces choix, une **pipeline NLP complète** est utilisée pour analyser les documents et produire un contenu adapté au profil utilisateur.
+
+Plusieurs approches sont testées dans ce projet :
+- une approche basée uniquement sur un **LLM** (*LLM only*) ;
+- une approche intégrant le **Retrieval-Augmented Generation (RAG)** afin d’améliorer la qualité et la précision des recommandations.
+
+### 1.2 Objectifs du projet
+Les objectifs principaux sont les suivants :
+
+- mettre en place le **chargement et le traitement de documents PDF** ;
+- implémenter et comparer **différentes méthodes de génération de contenu** ;
+- évaluer l’apport du **RAG** et des **systèmes multi-agents** par rapport à une solution simple ;
+- proposer une **application fonctionnelle** permettant de comparer les résultats selon la méthode utilisée.
+
+### 1.3 Structure du projet
 
 Le projet est organisé de la manière suivante :
 
@@ -105,7 +135,7 @@ NLP_Project/
 └── .env                       # Configuration des clés API 
 ```
 
-### Description des fichiers principaux
+ Description des fichiers principaux : 
 
 - **app.py** : Point d'entrée de l'application. Contient l'interface Streamlit permettant à l'utilisateur de configurer son voyage et de comparer les différentes méthodes de génération.
 
@@ -121,33 +151,6 @@ NLP_Project/
 
 - **chroma_db_storage/** : Stockage persistant des bases vectorielles Chroma, organisées par destination. Permet d'éviter le recalcul des embeddings à chaque lancement.
 
-### 3) Lancer le code ![Static Badge](https://img.shields.io/badge/Ready-green)
-
-Une fois l'installation terminée, lancer l'application:
-> streamlit run app.py
-
-
--------------------------------------------------------------------------------------------------------------
-## 1. Introduction
-### 1.1 Contexte
-
-Ce projet a pour objectif de créer une application de **traitement du langage naturel (NLP)** permettant de générer des **recommandations de voyage** à partir de documents textuels.
-Les données utilisées sont des **documents PDF** contenant des informations sur différentes destinations.  
-
-L’utilisateur interagit avec une interface **Streamlit** afin de définir ses préférences (destination, budget, rythme du séjour, etc.).
-À partir de ces choix, une **pipeline NLP complète** est utilisée pour analyser les documents et produire un contenu adapté au profil utilisateur.
-
-Plusieurs approches sont testées dans ce projet :
-- une approche basée uniquement sur un **LLM** (*LLM only*) ;
-- une approche intégrant le **Retrieval-Augmented Generation (RAG)** afin d’améliorer la qualité et la précision des recommandations.
-
-### 1.2 Objectifs du projet
-Les objectifs principaux sont les suivants :
-
-- mettre en place le **chargement et le traitement de documents PDF** ;
-- implémenter et comparer **différentes méthodes de génération de contenu** ;
-- évaluer l’apport du **RAG** et des **systèmes multi-agents** par rapport à une solution simple ;
-- proposer une **application fonctionnelle** permettant de comparer les résultats selon la méthode utilisée.
 
 ## 2. Présentation des données utilisées
 Les données utilisées dans ce projet sont des **documents PDF de type guide de voyage**.  
