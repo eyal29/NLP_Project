@@ -11,27 +11,23 @@ CONSIGNES : https://github.com/bouajajais/nlp-instructions/blob/main/INSTRUCTION
 Vous pouvez l'installer via https://www.python.org/downloads/release/python-3110/
 
 ## Création d’un environnement virtuel (recommandé)
-Dans le dossier du projet :
- > py -3.11 -m venv .venv
-
-Activation de l’environnement:
-
- > source .venv/bin/activate (sur mac)
-
- > .venv\Scripts\activate          (sur windows)
+1. Dans le dossier du projet :
+   > py -3.11 -m venv .venv
+2. Activation de l’environnement:
+   > source .venv/bin/activate (sur mac)
+   > .venv\Scripts\activate          (sur windows)
 
 Une fois activé, (venv) doit apparaître dans le terminal.
 
-Verifiez que votre environnement est bien sur Python 3.11 en faisant la commande suivante: 
-> python --version
+3. Verifiez que votre environnement est bien sur Python 3.11 en faisant la commande suivante: 
+   > python --version
 
 ## Installation des dépendances
 
-Installer uv (dans le venv):
-> python -m pip install uv
-
-Installer toutes les librairies du projet :
-> uv pip install -r requirements.txt
+1. Installer uv (dans le venv):
+   > python -m pip install uv
+2. Installer toutes les librairies du projet :
+   > uv pip install -r requirements.txt
 
 (L'installation est un peu longue car il y a beaucoup de dépendances)
 
@@ -55,30 +51,30 @@ Installer toutes les librairies du projet :
 ### 2) Créer le fichier `.env`
 À la racine du projet, créez un fichier `.env` avec la commande :
 
-_sur Mac:_ 
-> touch .env
+- _sur Mac:_ 
+  > touch .env
 
-Puis ouvrez-le avec un éditeur :
-> nano .env
+  Puis ouvrez-le avec un éditeur :
+  > nano .env
 
-Ajoutez la ligne suivante dans le fichier :
-GROQ_API_KEY=VOTRE_CLE_ICI
+  Ajoutez la ligne suivante dans le fichier :
+  GROQ_API_KEY=VOTRE_CLE_ICI
+   
+  Enregistrez et fermez (Ctrl+O, Entrée, Ctrl+X sur nano).
 
-Enregistrez et fermez (Ctrl+O, Entrée, Ctrl+X sur nano).
+- _sur Windows:_
 
-_sur Windows:_
+  À la racine du projet, créez un fichier `.env` avec la commande :
+  > echo "GROQ_API_KEY=VOTRE_CLE_ICI" | Out-File -Encoding UTF8 .env
 
-À la racine du projet, créez un fichier `.env` avec la commande :
-> echo "GROQ_API_KEY=VOTRE_CLE_ICI" | Out-File -Encoding UTF8 .env
-
-Remplacez `VOTRE_CLE_ICI` par votre clé API réelle.
+  Remplacez `VOTRE_CLE_ICI` par votre clé API réelle.
 
 Vous pouvez également le créer à la main.
 
 ### 3) Lancer le code ![Static Badge](https://img.shields.io/badge/Ready-green)
 
 Une fois l'installation terminée, lancer l'application:
-> streamlit run app.py
+   > streamlit run app.py
 
 
 -------------------------------------------------------------------------------------------------------------
