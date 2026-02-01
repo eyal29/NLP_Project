@@ -81,7 +81,8 @@ L’utilisateur interagit avec une interface **Streamlit** afin de définir ses 
 À partir de ces choix, une **pipeline NLP complète** est utilisée pour analyser les documents et produire un contenu adapté au profil utilisateur.
 
 Plusieurs approches sont testées dans ce projet :
-- une approche basée uniquement sur un **LLM** (*LLM only*) ;
+- une approche basée uniquement sur un **LLM** (*LLM only*).
+- une approche basée sur un système multi-agent.
 - une approche intégrant le **Retrieval-Augmented Generation (RAG)** afin d’améliorer la qualité et la précision des recommandations.
 
 ### 1.2 Objectifs du projet
@@ -142,7 +143,7 @@ NLP_Project/
 
 
 ## 2. Présentation des données utilisées
-Les données utilisées dans ce projet sont des **documents PDF de type guide de voyage**.  
+Les données utilisées dans ce projet sont des **documents PDF de type guide de voyage**.
 Chaque document correspond à une destination spécifique (ex. Rome, New York, Japon).
 
 Ces documents contiennent :
