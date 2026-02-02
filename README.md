@@ -84,6 +84,9 @@ Plusieurs approches sont testées dans ce projet :
 - une approche basée uniquement sur un **LLM** (*LLM only*).
 - une approche basée sur un système multi-agent.
 - une approche intégrant le **Retrieval-Augmented Generation (RAG)** afin d’améliorer la qualité et la précision des recommandations.
+  
+<img src="image/40.jpeg" alt="Pipeline de prétraitement pour le RAG" width="900" />
+
 
 ### 1.2 Objectifs du projet
 Les objectifs principaux sont les suivants :
